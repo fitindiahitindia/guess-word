@@ -100,6 +100,7 @@ export class WordGussComponent {
     if(string1.length===string2.length && string1.toString()===string2.join('')){
      this.status = true
     }else{
+      this.status=false
       if(this.remainGuess >0){
         this.remainGuess = this.remainGuess-1
       }else{
