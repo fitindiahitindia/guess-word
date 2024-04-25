@@ -80,11 +80,11 @@ export class WordGussComponent {
   onChangeWord(val:any,i:number){
    if(this.existWordCopy.length <=0){
      this.existWordCopy = [...this.existWord]
-     this.existWordCopy[i]=val
-     this.wrongLettersTemp.push(val)
+     this.existWordCopy[i]=val.toLowercase()
+     this.wrongLettersTemp.push(val.toLowercase())
    }else{
-     this.existWordCopy[i]=val
-     this.wrongLettersTemp.push(val)
+     this.existWordCopy[i]=val.toLowercase()
+     this.wrongLettersTemp.push(val.toLowercase())
    }  
   }
   setWrongLetterValue(){
