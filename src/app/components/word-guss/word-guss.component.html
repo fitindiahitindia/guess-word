@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-7 col-sm-10 mx-auto">
+            <div class="word_guss_box">
+                <div class="card border-light bg-white p-3">
+                    <div class="card-header h4 bg-white d-flex align-items-center justify-content-between">
+                      <div>Guess the word</div>
+                     
+                      <div class="text-secondary fs-6">{{increment}}/{{wordsListLength}}</div>
+                    </div>
+                    <div class="card-body">
+                      <div class="wordBox d-flex align-items-start flex-wrap">
+                        <div class="border p-3 me-2 mb-3" *ngFor="let word of existWord;let i=index">
+                          <input type="text" [ngClass]="word!='' ? 'bg-light' :''" [disabled]="word!='' ? true :false" value={{word}} #val (change)="onChangeWord(val.value,i)" name="val" id="InputID" class="inputStyle" maxlength="1">
+                        </div>
+                      </div>
+                      <p class="card-text mb-1"><span class="fw-bold">Hint:</span> {{wordHint}}</p>
+                      <p class="card-text mb-1"><span class="fw-bold">Remaining Guess:</span> {{remainGuess}}</p>
+                      <p class="card-text mb-1">
+                        <span class="fw-bold">Wrong Letters:</span>
+                        <span *ngFor="let letter of wrongLettersRep"> {{letter}},</span> 
+                      </p>
+                      <p class="card-text mb-1" *ngIf="remainGuess<=0"><span class="fw-bold">Correct:</span> {{wordsList[this.increment-1].word}}</p>
+                      <div class="button mt-3">
+                          <button class="btn btn-primary w-100" (click)="checkWord()">Check</button>
+                          <button class="btn  btn-sm btn-outline-dark mt-4" [disabled]="increment<=1 ?true :false" (click)="prev()">Prev</button>
+                          <button class="btn  btn-sm btn-outline-dark ms-2 mt-4" [disabled]="remainGuess>0 && !status ?true :false" (click)="next()">Next</button>
+                      </div>
+                    </div>
+                  </div>      
+            </div>
+        </div>
+    </div>
+</div>
+
