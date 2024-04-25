@@ -21,6 +21,7 @@
                         <span *ngFor="let letter of wrongLettersRep"> {{letter}},</span> 
                       </p>
                       <p class="card-text mb-1" *ngIf="remainGuess<=0"><span class="fw-bold">Correct:</span> {{wordsList[this.increment-1].word}}</p>
+                      <p class="card-text mb-1" *ngIf="status" ><span class="fw-bold text-success">Answer is correct:</span></p>
                       <div class="button mt-3">
                           <button class="btn btn-primary w-100" (click)="checkWord()">Check</button>
                           <button class="btn  btn-sm btn-outline-dark mt-4" [disabled]="increment<=1 ?true :false" (click)="prev()">Prev</button>
