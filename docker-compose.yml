@@ -1,6 +1,6 @@
 version: "3.3"
 services:
   web:
-   build: .
+   image: guess-app
    ports:
      - "4200:4200"
