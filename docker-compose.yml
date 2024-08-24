@@ -1,0 +1,6 @@
+version: "1"
+service:
+  web:
+   build: .
+   port:
+     - "4200:4200"
